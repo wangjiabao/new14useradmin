@@ -174,70 +174,70 @@ func RegisterAppHTTPServer(s *http.Server, srv AppHTTPServer) {
 	r.GET("/api/app_server/withdraw_list", _App_WithdrawList0_HTTP_Handler(srv))
 	r.GET("/api/app_server/recommend_list", _App_RecommendList0_HTTP_Handler(srv))
 	r.POST("/api/app_server/withdraw", _App_Withdraw0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/deposit", _App_Deposit0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/deposit_withdraw", _App_DepositWithdraw0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/deposit_biw", _App_DepositBiw0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/deposit_withdraw_biw", _App_DepositWithdrawBiw0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/deposit_5", _App_Deposit50_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/deposit_3", _App_Deposit30_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/deposit_4", _App_Deposit40_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/vip_check", _App_VipCheck0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/deposit_2", _App_Deposit20_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/reward_list", _App_AdminRewardList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/trade_list", _App_AdminTradeList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/lock_system", _App_LockSystem0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/user_list", _App_AdminUserList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/check_admin_user_area", _App_CheckAdminUserArea0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/check_and_insert_locations_recommend_user", _App_CheckAndInsertLocationsRecommendUser0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/location_list", _App_AdminLocationList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/location_list_2", _App_AdminLocationListNew0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/record_list", _App_AdminRecordList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/location_all_list", _App_AdminLocationAllList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/withdraw_list", _App_AdminWithdrawList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/withdraw", _App_AdminWithdraw0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/trade", _App_AdminTrade0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/withdraw_pass", _App_AdminWithdrawPass0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/withdraw_eth", _App_AdminWithdrawEth0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/withdraw_biw", _App_AdminWithdrawBiw0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/fee", _App_AdminFee0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/daily_fee", _App_AdminDailyFee0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/all", _App_AdminAll0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/user_recommend", _App_AdminUserRecommend0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/month_recommend", _App_AdminMonthRecommend0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/config", _App_AdminConfig0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/config_update", _App_AdminConfigUpdate0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/config_update_listen", _App_AdminConfigUpdateListen0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/password_update", _App_AdminUserPasswordUpdate0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/admin_update_location_new_max", _App_AdminUpdateLocationNewMax0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/vip_update", _App_AdminVipUpdate0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/set_pass", _App_AdminSetPass0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/amount_four_update", _App_AdminAmountFourUpdate0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/undo_update", _App_AdminUndoUpdate0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/level_update", _App_AdminAreaLevelUpdate0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/location_insert", _App_AdminLocationInsert0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/balance_update", _App_AdminBalanceUpdate0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/login", _App_AdminLogin0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/create_account", _App_AdminCreateAccount0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/change_password", _App_AdminChangePassword0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/admin_list", _App_AdminList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/auth_list", _App_AuthList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/my_auth_list", _App_MyAuthList0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/user_auth_list", _App_UserAuthList0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/auth_create", _App_AuthAdminCreate0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/auth_delete", _App_AuthAdminDelete0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/check_and_insert_recommend_area", _App_CheckAndInsertRecommendArea0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/daily_recommend_reward", _App_AdminDailyRecommendReward0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/daily_balance_reward", _App_AdminDailyBalanceReward0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/new_daily_location_reward", _App_AdminDailyLocationReward0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/new_daily_location_reward_three", _App_AdminDailyLocationRewardThree0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/daily_area_reward", _App_AdminDailyAreaReward0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/daily_location_reward_new", _App_AdminDailyLocationRewardNew0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/add_money", _App_AdminAddMoney0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/test_money", _App_TestMoney0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/lock_user", _App_LockUser0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/lock_user_reward", _App_LockUserReward0_HTTP_Handler(srv))
-	r.POST("/api/admin_dhb/admin_recommend_level", _App_AdminRecommendLevelUpdate0_HTTP_Handler(srv))
-	r.GET("/api/admin_dhb/buy_list", _App_AdminBuyList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/deposit", _App_Deposit0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/deposit_withdraw", _App_DepositWithdraw0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/deposit_biw", _App_DepositBiw0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/deposit_withdraw_biw", _App_DepositWithdrawBiw0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/deposit_5", _App_Deposit50_HTTP_Handler(srv))
+	r.GET("/api/admin_user/deposit_3", _App_Deposit30_HTTP_Handler(srv))
+	r.GET("/api/admin_user/deposit_4", _App_Deposit40_HTTP_Handler(srv))
+	r.GET("/api/admin_user/vip_check", _App_VipCheck0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/deposit_2", _App_Deposit20_HTTP_Handler(srv))
+	r.GET("/api/admin_user/reward_list", _App_AdminRewardList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/trade_list", _App_AdminTradeList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/lock_system", _App_LockSystem0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/user_list", _App_AdminUserList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/check_admin_user_area", _App_CheckAdminUserArea0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/check_and_insert_locations_recommend_user", _App_CheckAndInsertLocationsRecommendUser0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/location_list", _App_AdminLocationList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/location_list_2", _App_AdminLocationListNew0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/record_list", _App_AdminRecordList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/location_all_list", _App_AdminLocationAllList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/withdraw_list", _App_AdminWithdrawList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/withdraw", _App_AdminWithdraw0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/trade", _App_AdminTrade0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/withdraw_pass", _App_AdminWithdrawPass0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/withdraw_eth", _App_AdminWithdrawEth0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/withdraw_biw", _App_AdminWithdrawBiw0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/fee", _App_AdminFee0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/daily_fee", _App_AdminDailyFee0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/all", _App_AdminAll0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/user_recommend", _App_AdminUserRecommend0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/month_recommend", _App_AdminMonthRecommend0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/config", _App_AdminConfig0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/config_update", _App_AdminConfigUpdate0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/config_update_listen", _App_AdminConfigUpdateListen0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/password_update", _App_AdminUserPasswordUpdate0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/admin_update_location_new_max", _App_AdminUpdateLocationNewMax0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/vip_update", _App_AdminVipUpdate0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/set_pass", _App_AdminSetPass0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/amount_four_update", _App_AdminAmountFourUpdate0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/undo_update", _App_AdminUndoUpdate0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/level_update", _App_AdminAreaLevelUpdate0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/location_insert", _App_AdminLocationInsert0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/balance_update", _App_AdminBalanceUpdate0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/login", _App_AdminLogin0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/create_account", _App_AdminCreateAccount0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/change_password", _App_AdminChangePassword0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/admin_list", _App_AdminList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/auth_list", _App_AuthList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/my_auth_list", _App_MyAuthList0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/user_auth_list", _App_UserAuthList0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/auth_create", _App_AuthAdminCreate0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/auth_delete", _App_AuthAdminDelete0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/check_and_insert_recommend_area", _App_CheckAndInsertRecommendArea0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/daily_recommend_reward", _App_AdminDailyRecommendReward0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/daily_balance_reward", _App_AdminDailyBalanceReward0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/new_daily_location_reward", _App_AdminDailyLocationReward0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/new_daily_location_reward_three", _App_AdminDailyLocationRewardThree0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/daily_area_reward", _App_AdminDailyAreaReward0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/daily_location_reward_new", _App_AdminDailyLocationRewardNew0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/add_money", _App_AdminAddMoney0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/test_money", _App_TestMoney0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/lock_user", _App_LockUser0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/lock_user_reward", _App_LockUserReward0_HTTP_Handler(srv))
+	r.POST("/api/admin_user/admin_recommend_level", _App_AdminRecommendLevelUpdate0_HTTP_Handler(srv))
+	r.GET("/api/admin_user/buy_list", _App_AdminBuyList0_HTTP_Handler(srv))
 }
 
 func _App_UserInfo0_HTTP_Handler(srv AppHTTPServer) func(ctx http.Context) error {
@@ -1733,7 +1733,7 @@ func NewAppHTTPClient(client *http.Client) AppHTTPClient {
 
 func (c *AppHTTPClientImpl) AdminAddMoney(ctx context.Context, in *AdminDailyAddMoneyRequest, opts ...http.CallOption) (*AdminDailyAddMoneyReply, error) {
 	var out AdminDailyAddMoneyReply
-	pattern := "/api/admin_dhb/add_money"
+	pattern := "/api/admin_user/add_money"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminAddMoney))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1746,7 +1746,7 @@ func (c *AppHTTPClientImpl) AdminAddMoney(ctx context.Context, in *AdminDailyAdd
 
 func (c *AppHTTPClientImpl) AdminAll(ctx context.Context, in *AdminAllRequest, opts ...http.CallOption) (*AdminAllReply, error) {
 	var out AdminAllReply
-	pattern := "/api/admin_dhb/all"
+	pattern := "/api/admin_user/all"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminAll))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1759,7 +1759,7 @@ func (c *AppHTTPClientImpl) AdminAll(ctx context.Context, in *AdminAllRequest, o
 
 func (c *AppHTTPClientImpl) AdminAmountFourUpdate(ctx context.Context, in *AdminAmountFourRequest, opts ...http.CallOption) (*AdminAmountFourReply, error) {
 	var out AdminAmountFourReply
-	pattern := "/api/admin_dhb/amount_four_update"
+	pattern := "/api/admin_user/amount_four_update"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminAmountFourUpdate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1772,7 +1772,7 @@ func (c *AppHTTPClientImpl) AdminAmountFourUpdate(ctx context.Context, in *Admin
 
 func (c *AppHTTPClientImpl) AdminAreaLevelUpdate(ctx context.Context, in *AdminAreaLevelUpdateRequest, opts ...http.CallOption) (*AdminAreaLevelUpdateReply, error) {
 	var out AdminAreaLevelUpdateReply
-	pattern := "/api/admin_dhb/level_update"
+	pattern := "/api/admin_user/level_update"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminAreaLevelUpdate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1785,7 +1785,7 @@ func (c *AppHTTPClientImpl) AdminAreaLevelUpdate(ctx context.Context, in *AdminA
 
 func (c *AppHTTPClientImpl) AdminBalanceUpdate(ctx context.Context, in *AdminBalanceUpdateRequest, opts ...http.CallOption) (*AdminBalanceUpdateReply, error) {
 	var out AdminBalanceUpdateReply
-	pattern := "/api/admin_dhb/balance_update"
+	pattern := "/api/admin_user/balance_update"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminBalanceUpdate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1798,7 +1798,7 @@ func (c *AppHTTPClientImpl) AdminBalanceUpdate(ctx context.Context, in *AdminBal
 
 func (c *AppHTTPClientImpl) AdminBuyList(ctx context.Context, in *AdminBuyListRequest, opts ...http.CallOption) (*AdminBuyListReply, error) {
 	var out AdminBuyListReply
-	pattern := "/api/admin_dhb/buy_list"
+	pattern := "/api/admin_user/buy_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminBuyList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1811,7 +1811,7 @@ func (c *AppHTTPClientImpl) AdminBuyList(ctx context.Context, in *AdminBuyListRe
 
 func (c *AppHTTPClientImpl) AdminChangePassword(ctx context.Context, in *AdminChangePasswordRequest, opts ...http.CallOption) (*AdminChangePasswordReply, error) {
 	var out AdminChangePasswordReply
-	pattern := "/api/admin_dhb/change_password"
+	pattern := "/api/admin_user/change_password"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminChangePassword))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1824,7 +1824,7 @@ func (c *AppHTTPClientImpl) AdminChangePassword(ctx context.Context, in *AdminCh
 
 func (c *AppHTTPClientImpl) AdminConfig(ctx context.Context, in *AdminConfigRequest, opts ...http.CallOption) (*AdminConfigReply, error) {
 	var out AdminConfigReply
-	pattern := "/api/admin_dhb/config"
+	pattern := "/api/admin_user/config"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminConfig))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1837,7 +1837,7 @@ func (c *AppHTTPClientImpl) AdminConfig(ctx context.Context, in *AdminConfigRequ
 
 func (c *AppHTTPClientImpl) AdminConfigUpdate(ctx context.Context, in *AdminConfigUpdateRequest, opts ...http.CallOption) (*AdminConfigUpdateReply, error) {
 	var out AdminConfigUpdateReply
-	pattern := "/api/admin_dhb/config_update"
+	pattern := "/api/admin_user/config_update"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminConfigUpdate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1850,7 +1850,7 @@ func (c *AppHTTPClientImpl) AdminConfigUpdate(ctx context.Context, in *AdminConf
 
 func (c *AppHTTPClientImpl) AdminConfigUpdateListen(ctx context.Context, in *AdminConfigUpdateListenRequest, opts ...http.CallOption) (*AdminConfigUpdateListenReply, error) {
 	var out AdminConfigUpdateListenReply
-	pattern := "/api/admin_dhb/config_update_listen"
+	pattern := "/api/admin_user/config_update_listen"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminConfigUpdateListen))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1863,7 +1863,7 @@ func (c *AppHTTPClientImpl) AdminConfigUpdateListen(ctx context.Context, in *Adm
 
 func (c *AppHTTPClientImpl) AdminCreateAccount(ctx context.Context, in *AdminCreateAccountRequest, opts ...http.CallOption) (*AdminCreateAccountReply, error) {
 	var out AdminCreateAccountReply
-	pattern := "/api/admin_dhb/create_account"
+	pattern := "/api/admin_user/create_account"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminCreateAccount))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1876,7 +1876,7 @@ func (c *AppHTTPClientImpl) AdminCreateAccount(ctx context.Context, in *AdminCre
 
 func (c *AppHTTPClientImpl) AdminDailyAreaReward(ctx context.Context, in *AdminDailyLocationRewardRequest, opts ...http.CallOption) (*AdminDailyLocationRewardReply, error) {
 	var out AdminDailyLocationRewardReply
-	pattern := "/api/admin_dhb/daily_area_reward"
+	pattern := "/api/admin_user/daily_area_reward"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminDailyAreaReward))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1889,7 +1889,7 @@ func (c *AppHTTPClientImpl) AdminDailyAreaReward(ctx context.Context, in *AdminD
 
 func (c *AppHTTPClientImpl) AdminDailyBalanceReward(ctx context.Context, in *AdminDailyBalanceRewardRequest, opts ...http.CallOption) (*AdminDailyBalanceRewardReply, error) {
 	var out AdminDailyBalanceRewardReply
-	pattern := "/api/admin_dhb/daily_balance_reward"
+	pattern := "/api/admin_user/daily_balance_reward"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminDailyBalanceReward))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1902,7 +1902,7 @@ func (c *AppHTTPClientImpl) AdminDailyBalanceReward(ctx context.Context, in *Adm
 
 func (c *AppHTTPClientImpl) AdminDailyFee(ctx context.Context, in *AdminDailyFeeRequest, opts ...http.CallOption) (*AdminDailyFeeReply, error) {
 	var out AdminDailyFeeReply
-	pattern := "/api/admin_dhb/daily_fee"
+	pattern := "/api/admin_user/daily_fee"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminDailyFee))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1915,7 +1915,7 @@ func (c *AppHTTPClientImpl) AdminDailyFee(ctx context.Context, in *AdminDailyFee
 
 func (c *AppHTTPClientImpl) AdminDailyLocationReward(ctx context.Context, in *AdminDailyLocationRewardRequest, opts ...http.CallOption) (*AdminDailyLocationRewardReply, error) {
 	var out AdminDailyLocationRewardReply
-	pattern := "/api/admin_dhb/new_daily_location_reward"
+	pattern := "/api/admin_user/new_daily_location_reward"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminDailyLocationReward))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1928,7 +1928,7 @@ func (c *AppHTTPClientImpl) AdminDailyLocationReward(ctx context.Context, in *Ad
 
 func (c *AppHTTPClientImpl) AdminDailyLocationRewardNew(ctx context.Context, in *AdminDailyLocationRewardNewRequest, opts ...http.CallOption) (*AdminDailyLocationRewardNewReply, error) {
 	var out AdminDailyLocationRewardNewReply
-	pattern := "/api/admin_dhb/daily_location_reward_new"
+	pattern := "/api/admin_user/daily_location_reward_new"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminDailyLocationRewardNew))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1941,7 +1941,7 @@ func (c *AppHTTPClientImpl) AdminDailyLocationRewardNew(ctx context.Context, in 
 
 func (c *AppHTTPClientImpl) AdminDailyLocationRewardThree(ctx context.Context, in *AdminDailyLocationRewardRequest, opts ...http.CallOption) (*AdminDailyLocationRewardReply, error) {
 	var out AdminDailyLocationRewardReply
-	pattern := "/api/admin_dhb/new_daily_location_reward_three"
+	pattern := "/api/admin_user/new_daily_location_reward_three"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminDailyLocationRewardThree))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1954,7 +1954,7 @@ func (c *AppHTTPClientImpl) AdminDailyLocationRewardThree(ctx context.Context, i
 
 func (c *AppHTTPClientImpl) AdminDailyRecommendReward(ctx context.Context, in *AdminDailyRecommendRewardRequest, opts ...http.CallOption) (*AdminDailyRecommendRewardReply, error) {
 	var out AdminDailyRecommendRewardReply
-	pattern := "/api/admin_dhb/daily_recommend_reward"
+	pattern := "/api/admin_user/daily_recommend_reward"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminDailyRecommendReward))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1967,7 +1967,7 @@ func (c *AppHTTPClientImpl) AdminDailyRecommendReward(ctx context.Context, in *A
 
 func (c *AppHTTPClientImpl) AdminFee(ctx context.Context, in *AdminFeeRequest, opts ...http.CallOption) (*AdminFeeReply, error) {
 	var out AdminFeeReply
-	pattern := "/api/admin_dhb/fee"
+	pattern := "/api/admin_user/fee"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminFee))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1980,7 +1980,7 @@ func (c *AppHTTPClientImpl) AdminFee(ctx context.Context, in *AdminFeeRequest, o
 
 func (c *AppHTTPClientImpl) AdminList(ctx context.Context, in *AdminListRequest, opts ...http.CallOption) (*AdminListReply, error) {
 	var out AdminListReply
-	pattern := "/api/admin_dhb/admin_list"
+	pattern := "/api/admin_user/admin_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -1993,7 +1993,7 @@ func (c *AppHTTPClientImpl) AdminList(ctx context.Context, in *AdminListRequest,
 
 func (c *AppHTTPClientImpl) AdminLocationAllList(ctx context.Context, in *AdminLocationAllListRequest, opts ...http.CallOption) (*AdminLocationAllListReply, error) {
 	var out AdminLocationAllListReply
-	pattern := "/api/admin_dhb/location_all_list"
+	pattern := "/api/admin_user/location_all_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminLocationAllList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2006,7 +2006,7 @@ func (c *AppHTTPClientImpl) AdminLocationAllList(ctx context.Context, in *AdminL
 
 func (c *AppHTTPClientImpl) AdminLocationInsert(ctx context.Context, in *AdminLocationInsertRequest, opts ...http.CallOption) (*AdminLocationInsertReply, error) {
 	var out AdminLocationInsertReply
-	pattern := "/api/admin_dhb/location_insert"
+	pattern := "/api/admin_user/location_insert"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminLocationInsert))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2019,7 +2019,7 @@ func (c *AppHTTPClientImpl) AdminLocationInsert(ctx context.Context, in *AdminLo
 
 func (c *AppHTTPClientImpl) AdminLocationList(ctx context.Context, in *AdminLocationListRequest, opts ...http.CallOption) (*AdminLocationListReply, error) {
 	var out AdminLocationListReply
-	pattern := "/api/admin_dhb/location_list"
+	pattern := "/api/admin_user/location_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminLocationList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2032,7 +2032,7 @@ func (c *AppHTTPClientImpl) AdminLocationList(ctx context.Context, in *AdminLoca
 
 func (c *AppHTTPClientImpl) AdminLocationListNew(ctx context.Context, in *AdminLocationListRequest, opts ...http.CallOption) (*AdminLocationListReply, error) {
 	var out AdminLocationListReply
-	pattern := "/api/admin_dhb/location_list_2"
+	pattern := "/api/admin_user/location_list_2"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminLocationListNew))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2045,7 +2045,7 @@ func (c *AppHTTPClientImpl) AdminLocationListNew(ctx context.Context, in *AdminL
 
 func (c *AppHTTPClientImpl) AdminLogin(ctx context.Context, in *AdminLoginRequest, opts ...http.CallOption) (*AdminLoginReply, error) {
 	var out AdminLoginReply
-	pattern := "/api/admin_dhb/login"
+	pattern := "/api/admin_user/login"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminLogin))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2058,7 +2058,7 @@ func (c *AppHTTPClientImpl) AdminLogin(ctx context.Context, in *AdminLoginReques
 
 func (c *AppHTTPClientImpl) AdminMonthRecommend(ctx context.Context, in *AdminMonthRecommendRequest, opts ...http.CallOption) (*AdminMonthRecommendReply, error) {
 	var out AdminMonthRecommendReply
-	pattern := "/api/admin_dhb/month_recommend"
+	pattern := "/api/admin_user/month_recommend"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminMonthRecommend))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2071,7 +2071,7 @@ func (c *AppHTTPClientImpl) AdminMonthRecommend(ctx context.Context, in *AdminMo
 
 func (c *AppHTTPClientImpl) AdminRecommendLevelUpdate(ctx context.Context, in *AdminRecommendLevelRequest, opts ...http.CallOption) (*AdminRecommendLevelReply, error) {
 	var out AdminRecommendLevelReply
-	pattern := "/api/admin_dhb/admin_recommend_level"
+	pattern := "/api/admin_user/admin_recommend_level"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminRecommendLevelUpdate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2084,7 +2084,7 @@ func (c *AppHTTPClientImpl) AdminRecommendLevelUpdate(ctx context.Context, in *A
 
 func (c *AppHTTPClientImpl) AdminRecordList(ctx context.Context, in *RecordListRequest, opts ...http.CallOption) (*RecordListReply, error) {
 	var out RecordListReply
-	pattern := "/api/admin_dhb/record_list"
+	pattern := "/api/admin_user/record_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminRecordList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2097,7 +2097,7 @@ func (c *AppHTTPClientImpl) AdminRecordList(ctx context.Context, in *RecordListR
 
 func (c *AppHTTPClientImpl) AdminRewardList(ctx context.Context, in *AdminRewardListRequest, opts ...http.CallOption) (*AdminRewardListReply, error) {
 	var out AdminRewardListReply
-	pattern := "/api/admin_dhb/reward_list"
+	pattern := "/api/admin_user/reward_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminRewardList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2110,7 +2110,7 @@ func (c *AppHTTPClientImpl) AdminRewardList(ctx context.Context, in *AdminReward
 
 func (c *AppHTTPClientImpl) AdminSetPass(ctx context.Context, in *AdminSetPassRequest, opts ...http.CallOption) (*AdminSetPassReply, error) {
 	var out AdminSetPassReply
-	pattern := "/api/admin_dhb/set_pass"
+	pattern := "/api/admin_user/set_pass"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminSetPass))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2123,7 +2123,7 @@ func (c *AppHTTPClientImpl) AdminSetPass(ctx context.Context, in *AdminSetPassRe
 
 func (c *AppHTTPClientImpl) AdminTrade(ctx context.Context, in *AdminTradeRequest, opts ...http.CallOption) (*AdminTradeReply, error) {
 	var out AdminTradeReply
-	pattern := "/api/admin_dhb/trade"
+	pattern := "/api/admin_user/trade"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminTrade))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2136,7 +2136,7 @@ func (c *AppHTTPClientImpl) AdminTrade(ctx context.Context, in *AdminTradeReques
 
 func (c *AppHTTPClientImpl) AdminTradeList(ctx context.Context, in *AdminTradeListRequest, opts ...http.CallOption) (*AdminTradeListReply, error) {
 	var out AdminTradeListReply
-	pattern := "/api/admin_dhb/trade_list"
+	pattern := "/api/admin_user/trade_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminTradeList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2149,7 +2149,7 @@ func (c *AppHTTPClientImpl) AdminTradeList(ctx context.Context, in *AdminTradeLi
 
 func (c *AppHTTPClientImpl) AdminUndoUpdate(ctx context.Context, in *AdminUndoUpdateRequest, opts ...http.CallOption) (*AdminUndoUpdateReply, error) {
 	var out AdminUndoUpdateReply
-	pattern := "/api/admin_dhb/undo_update"
+	pattern := "/api/admin_user/undo_update"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminUndoUpdate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2162,7 +2162,7 @@ func (c *AppHTTPClientImpl) AdminUndoUpdate(ctx context.Context, in *AdminUndoUp
 
 func (c *AppHTTPClientImpl) AdminUpdateLocationNewMax(ctx context.Context, in *AdminUpdateLocationNewMaxRequest, opts ...http.CallOption) (*AdminUpdateLocationNewMaxReply, error) {
 	var out AdminUpdateLocationNewMaxReply
-	pattern := "/api/admin_dhb/admin_update_location_new_max"
+	pattern := "/api/admin_user/admin_update_location_new_max"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminUpdateLocationNewMax))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2175,7 +2175,7 @@ func (c *AppHTTPClientImpl) AdminUpdateLocationNewMax(ctx context.Context, in *A
 
 func (c *AppHTTPClientImpl) AdminUserList(ctx context.Context, in *AdminUserListRequest, opts ...http.CallOption) (*AdminUserListReply, error) {
 	var out AdminUserListReply
-	pattern := "/api/admin_dhb/user_list"
+	pattern := "/api/admin_user/user_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminUserList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2188,7 +2188,7 @@ func (c *AppHTTPClientImpl) AdminUserList(ctx context.Context, in *AdminUserList
 
 func (c *AppHTTPClientImpl) AdminUserPasswordUpdate(ctx context.Context, in *AdminPasswordUpdateRequest, opts ...http.CallOption) (*AdminPasswordUpdateReply, error) {
 	var out AdminPasswordUpdateReply
-	pattern := "/api/admin_dhb/password_update"
+	pattern := "/api/admin_user/password_update"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminUserPasswordUpdate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2201,7 +2201,7 @@ func (c *AppHTTPClientImpl) AdminUserPasswordUpdate(ctx context.Context, in *Adm
 
 func (c *AppHTTPClientImpl) AdminUserRecommend(ctx context.Context, in *AdminUserRecommendRequest, opts ...http.CallOption) (*AdminUserRecommendReply, error) {
 	var out AdminUserRecommendReply
-	pattern := "/api/admin_dhb/user_recommend"
+	pattern := "/api/admin_user/user_recommend"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminUserRecommend))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2214,7 +2214,7 @@ func (c *AppHTTPClientImpl) AdminUserRecommend(ctx context.Context, in *AdminUse
 
 func (c *AppHTTPClientImpl) AdminVipUpdate(ctx context.Context, in *AdminVipUpdateRequest, opts ...http.CallOption) (*AdminVipUpdateReply, error) {
 	var out AdminVipUpdateReply
-	pattern := "/api/admin_dhb/vip_update"
+	pattern := "/api/admin_user/vip_update"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminVipUpdate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2227,7 +2227,7 @@ func (c *AppHTTPClientImpl) AdminVipUpdate(ctx context.Context, in *AdminVipUpda
 
 func (c *AppHTTPClientImpl) AdminWithdraw(ctx context.Context, in *AdminWithdrawRequest, opts ...http.CallOption) (*AdminWithdrawReply, error) {
 	var out AdminWithdrawReply
-	pattern := "/api/admin_dhb/withdraw"
+	pattern := "/api/admin_user/withdraw"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminWithdraw))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2240,7 +2240,7 @@ func (c *AppHTTPClientImpl) AdminWithdraw(ctx context.Context, in *AdminWithdraw
 
 func (c *AppHTTPClientImpl) AdminWithdrawBiw(ctx context.Context, in *AdminWithdrawEthRequest, opts ...http.CallOption) (*AdminWithdrawEthReply, error) {
 	var out AdminWithdrawEthReply
-	pattern := "/api/admin_dhb/withdraw_biw"
+	pattern := "/api/admin_user/withdraw_biw"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminWithdrawBiw))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2253,7 +2253,7 @@ func (c *AppHTTPClientImpl) AdminWithdrawBiw(ctx context.Context, in *AdminWithd
 
 func (c *AppHTTPClientImpl) AdminWithdrawEth(ctx context.Context, in *AdminWithdrawEthRequest, opts ...http.CallOption) (*AdminWithdrawEthReply, error) {
 	var out AdminWithdrawEthReply
-	pattern := "/api/admin_dhb/withdraw_eth"
+	pattern := "/api/admin_user/withdraw_eth"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminWithdrawEth))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2266,7 +2266,7 @@ func (c *AppHTTPClientImpl) AdminWithdrawEth(ctx context.Context, in *AdminWithd
 
 func (c *AppHTTPClientImpl) AdminWithdrawList(ctx context.Context, in *AdminWithdrawListRequest, opts ...http.CallOption) (*AdminWithdrawListReply, error) {
 	var out AdminWithdrawListReply
-	pattern := "/api/admin_dhb/withdraw_list"
+	pattern := "/api/admin_user/withdraw_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAdminWithdrawList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2279,7 +2279,7 @@ func (c *AppHTTPClientImpl) AdminWithdrawList(ctx context.Context, in *AdminWith
 
 func (c *AppHTTPClientImpl) AdminWithdrawPass(ctx context.Context, in *AdminWithdrawPassRequest, opts ...http.CallOption) (*AdminWithdrawPassReply, error) {
 	var out AdminWithdrawPassReply
-	pattern := "/api/admin_dhb/withdraw_pass"
+	pattern := "/api/admin_user/withdraw_pass"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAdminWithdrawPass))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2292,7 +2292,7 @@ func (c *AppHTTPClientImpl) AdminWithdrawPass(ctx context.Context, in *AdminWith
 
 func (c *AppHTTPClientImpl) AuthAdminCreate(ctx context.Context, in *AuthAdminCreateRequest, opts ...http.CallOption) (*AuthAdminCreateReply, error) {
 	var out AuthAdminCreateReply
-	pattern := "/api/admin_dhb/auth_create"
+	pattern := "/api/admin_user/auth_create"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAuthAdminCreate))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2305,7 +2305,7 @@ func (c *AppHTTPClientImpl) AuthAdminCreate(ctx context.Context, in *AuthAdminCr
 
 func (c *AppHTTPClientImpl) AuthAdminDelete(ctx context.Context, in *AuthAdminDeleteRequest, opts ...http.CallOption) (*AuthAdminDeleteReply, error) {
 	var out AuthAdminDeleteReply
-	pattern := "/api/admin_dhb/auth_delete"
+	pattern := "/api/admin_user/auth_delete"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppAuthAdminDelete))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2318,7 +2318,7 @@ func (c *AppHTTPClientImpl) AuthAdminDelete(ctx context.Context, in *AuthAdminDe
 
 func (c *AppHTTPClientImpl) AuthList(ctx context.Context, in *AuthListRequest, opts ...http.CallOption) (*AuthListReply, error) {
 	var out AuthListReply
-	pattern := "/api/admin_dhb/auth_list"
+	pattern := "/api/admin_user/auth_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppAuthList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2331,7 +2331,7 @@ func (c *AppHTTPClientImpl) AuthList(ctx context.Context, in *AuthListRequest, o
 
 func (c *AppHTTPClientImpl) CheckAdminUserArea(ctx context.Context, in *CheckAdminUserAreaRequest, opts ...http.CallOption) (*CheckAdminUserAreaReply, error) {
 	var out CheckAdminUserAreaReply
-	pattern := "/api/admin_dhb/check_admin_user_area"
+	pattern := "/api/admin_user/check_admin_user_area"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppCheckAdminUserArea))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2344,7 +2344,7 @@ func (c *AppHTTPClientImpl) CheckAdminUserArea(ctx context.Context, in *CheckAdm
 
 func (c *AppHTTPClientImpl) CheckAndInsertLocationsRecommendUser(ctx context.Context, in *CheckAndInsertLocationsRecommendUserRequest, opts ...http.CallOption) (*CheckAndInsertLocationsRecommendUserReply, error) {
 	var out CheckAndInsertLocationsRecommendUserReply
-	pattern := "/api/admin_dhb/check_and_insert_locations_recommend_user"
+	pattern := "/api/admin_user/check_and_insert_locations_recommend_user"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppCheckAndInsertLocationsRecommendUser))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2357,7 +2357,7 @@ func (c *AppHTTPClientImpl) CheckAndInsertLocationsRecommendUser(ctx context.Con
 
 func (c *AppHTTPClientImpl) CheckAndInsertRecommendArea(ctx context.Context, in *CheckAndInsertRecommendAreaRequest, opts ...http.CallOption) (*CheckAndInsertRecommendAreaReply, error) {
 	var out CheckAndInsertRecommendAreaReply
-	pattern := "/api/admin_dhb/check_and_insert_recommend_area"
+	pattern := "/api/admin_user/check_and_insert_recommend_area"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppCheckAndInsertRecommendArea))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2370,7 +2370,7 @@ func (c *AppHTTPClientImpl) CheckAndInsertRecommendArea(ctx context.Context, in 
 
 func (c *AppHTTPClientImpl) Deposit(ctx context.Context, in *DepositRequest, opts ...http.CallOption) (*DepositReply, error) {
 	var out DepositReply
-	pattern := "/api/admin_dhb/deposit"
+	pattern := "/api/admin_user/deposit"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppDeposit))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2383,7 +2383,7 @@ func (c *AppHTTPClientImpl) Deposit(ctx context.Context, in *DepositRequest, opt
 
 func (c *AppHTTPClientImpl) Deposit2(ctx context.Context, in *DepositRequest, opts ...http.CallOption) (*DepositReply, error) {
 	var out DepositReply
-	pattern := "/api/admin_dhb/deposit_2"
+	pattern := "/api/admin_user/deposit_2"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppDeposit2))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2396,7 +2396,7 @@ func (c *AppHTTPClientImpl) Deposit2(ctx context.Context, in *DepositRequest, op
 
 func (c *AppHTTPClientImpl) Deposit3(ctx context.Context, in *DepositRequest, opts ...http.CallOption) (*DepositReply, error) {
 	var out DepositReply
-	pattern := "/api/admin_dhb/deposit_3"
+	pattern := "/api/admin_user/deposit_3"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppDeposit3))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2409,7 +2409,7 @@ func (c *AppHTTPClientImpl) Deposit3(ctx context.Context, in *DepositRequest, op
 
 func (c *AppHTTPClientImpl) Deposit4(ctx context.Context, in *DepositRequest, opts ...http.CallOption) (*DepositReply, error) {
 	var out DepositReply
-	pattern := "/api/admin_dhb/deposit_4"
+	pattern := "/api/admin_user/deposit_4"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppDeposit4))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2422,7 +2422,7 @@ func (c *AppHTTPClientImpl) Deposit4(ctx context.Context, in *DepositRequest, op
 
 func (c *AppHTTPClientImpl) Deposit5(ctx context.Context, in *DepositRequest, opts ...http.CallOption) (*DepositReply, error) {
 	var out DepositReply
-	pattern := "/api/admin_dhb/deposit_5"
+	pattern := "/api/admin_user/deposit_5"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppDeposit5))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2435,7 +2435,7 @@ func (c *AppHTTPClientImpl) Deposit5(ctx context.Context, in *DepositRequest, op
 
 func (c *AppHTTPClientImpl) DepositBiw(ctx context.Context, in *DepositRequest, opts ...http.CallOption) (*DepositReply, error) {
 	var out DepositReply
-	pattern := "/api/admin_dhb/deposit_biw"
+	pattern := "/api/admin_user/deposit_biw"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppDepositBiw))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2448,7 +2448,7 @@ func (c *AppHTTPClientImpl) DepositBiw(ctx context.Context, in *DepositRequest, 
 
 func (c *AppHTTPClientImpl) DepositWithdraw(ctx context.Context, in *DepositRequest, opts ...http.CallOption) (*DepositReply, error) {
 	var out DepositReply
-	pattern := "/api/admin_dhb/deposit_withdraw"
+	pattern := "/api/admin_user/deposit_withdraw"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppDepositWithdraw))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2461,7 +2461,7 @@ func (c *AppHTTPClientImpl) DepositWithdraw(ctx context.Context, in *DepositRequ
 
 func (c *AppHTTPClientImpl) DepositWithdrawBiw(ctx context.Context, in *DepositRequest, opts ...http.CallOption) (*DepositReply, error) {
 	var out DepositReply
-	pattern := "/api/admin_dhb/deposit_withdraw_biw"
+	pattern := "/api/admin_user/deposit_withdraw_biw"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppDepositWithdrawBiw))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2487,7 +2487,7 @@ func (c *AppHTTPClientImpl) FeeRewardList(ctx context.Context, in *FeeRewardList
 
 func (c *AppHTTPClientImpl) LockSystem(ctx context.Context, in *LockSystemRequest, opts ...http.CallOption) (*LockSystemReply, error) {
 	var out LockSystemReply
-	pattern := "/api/admin_dhb/lock_system"
+	pattern := "/api/admin_user/lock_system"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppLockSystem))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2500,7 +2500,7 @@ func (c *AppHTTPClientImpl) LockSystem(ctx context.Context, in *LockSystemReques
 
 func (c *AppHTTPClientImpl) LockUser(ctx context.Context, in *LockUserRequest, opts ...http.CallOption) (*LockUserReply, error) {
 	var out LockUserReply
-	pattern := "/api/admin_dhb/lock_user"
+	pattern := "/api/admin_user/lock_user"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppLockUser))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2513,7 +2513,7 @@ func (c *AppHTTPClientImpl) LockUser(ctx context.Context, in *LockUserRequest, o
 
 func (c *AppHTTPClientImpl) LockUserReward(ctx context.Context, in *LockUserRewardRequest, opts ...http.CallOption) (*LockUserRewardReply, error) {
 	var out LockUserRewardReply
-	pattern := "/api/admin_dhb/lock_user_reward"
+	pattern := "/api/admin_user/lock_user_reward"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationAppLockUserReward))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2526,7 +2526,7 @@ func (c *AppHTTPClientImpl) LockUserReward(ctx context.Context, in *LockUserRewa
 
 func (c *AppHTTPClientImpl) MyAuthList(ctx context.Context, in *MyAuthListRequest, opts ...http.CallOption) (*MyAuthListReply, error) {
 	var out MyAuthListReply
-	pattern := "/api/admin_dhb/my_auth_list"
+	pattern := "/api/admin_user/my_auth_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppMyAuthList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2578,7 +2578,7 @@ func (c *AppHTTPClientImpl) RewardList(ctx context.Context, in *RewardListReques
 
 func (c *AppHTTPClientImpl) TestMoney(ctx context.Context, in *TestMoneyRequest, opts ...http.CallOption) (*TestMoneyReply, error) {
 	var out TestMoneyReply
-	pattern := "/api/admin_dhb/test_money"
+	pattern := "/api/admin_user/test_money"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppTestMoney))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2591,7 +2591,7 @@ func (c *AppHTTPClientImpl) TestMoney(ctx context.Context, in *TestMoneyRequest,
 
 func (c *AppHTTPClientImpl) UserAuthList(ctx context.Context, in *UserAuthListRequest, opts ...http.CallOption) (*UserAuthListReply, error) {
 	var out UserAuthListReply
-	pattern := "/api/admin_dhb/user_auth_list"
+	pattern := "/api/admin_user/user_auth_list"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppUserAuthList))
 	opts = append(opts, http.PathTemplate(pattern))
@@ -2617,7 +2617,7 @@ func (c *AppHTTPClientImpl) UserInfo(ctx context.Context, in *UserInfoRequest, o
 
 func (c *AppHTTPClientImpl) VipCheck(ctx context.Context, in *VipCheckRequest, opts ...http.CallOption) (*VipCheckReply, error) {
 	var out VipCheckReply
-	pattern := "/api/admin_dhb/vip_check"
+	pattern := "/api/admin_user/vip_check"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationAppVipCheck))
 	opts = append(opts, http.PathTemplate(pattern))

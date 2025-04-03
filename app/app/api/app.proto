@@ -63,404 +63,404 @@ service App {
 
 	rpc Deposit (DepositRequest) returns (DepositReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/deposit"
+			get: "/api/admin_user/deposit"
 		};
 	};
 
 	rpc DepositWithdraw (DepositRequest) returns (DepositReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/deposit_withdraw"
+			get: "/api/admin_user/deposit_withdraw"
 		};
 	};
 
 	rpc DepositBiw (DepositRequest) returns (DepositReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/deposit_biw"
+			get: "/api/admin_user/deposit_biw"
 		};
 	};
 
 	rpc DepositWithdrawBiw (DepositRequest) returns (DepositReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/deposit_withdraw_biw"
+			get: "/api/admin_user/deposit_withdraw_biw"
 		};
 	};
 
 	rpc Deposit5 (DepositRequest) returns (DepositReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/deposit_5"
+			get: "/api/admin_user/deposit_5"
 		};
 	};
 
 	rpc Deposit3 (DepositRequest) returns (DepositReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/deposit_3"
+			get: "/api/admin_user/deposit_3"
 		};
 	};
 
 	rpc Deposit4 (DepositRequest) returns (DepositReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/deposit_4"
+			get: "/api/admin_user/deposit_4"
 		};
 	};
 
 	rpc VipCheck (VipCheckRequest) returns (VipCheckReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/vip_check"
+			get: "/api/admin_user/vip_check"
 		};
 	};
 
 	rpc Deposit2 (DepositRequest) returns (DepositReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/deposit_2"
+			get: "/api/admin_user/deposit_2"
 		};
 	};
 
 	rpc AdminRewardList (AdminRewardListRequest) returns (AdminRewardListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/reward_list"
+			get: "/api/admin_user/reward_list"
 		};
 	};
 
 	rpc AdminTradeList (AdminTradeListRequest) returns (AdminTradeListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/trade_list"
+			get: "/api/admin_user/trade_list"
 		};
 	};
 
 	rpc LockSystem (LockSystemRequest) returns (LockSystemReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/lock_system"
+			get: "/api/admin_user/lock_system"
 		};
 	};
 
 	rpc AdminUserList (AdminUserListRequest) returns (AdminUserListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/user_list"
+			get: "/api/admin_user/user_list"
 		};
 	};
 
 	rpc CheckAdminUserArea (CheckAdminUserAreaRequest) returns (CheckAdminUserAreaReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/check_admin_user_area"
+			get: "/api/admin_user/check_admin_user_area"
 		};
 	};
 
 	rpc CheckAndInsertLocationsRecommendUser (CheckAndInsertLocationsRecommendUserRequest) returns (CheckAndInsertLocationsRecommendUserReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/check_and_insert_locations_recommend_user"
+			get: "/api/admin_user/check_and_insert_locations_recommend_user"
 		};
 	};
 
 	rpc AdminLocationList (AdminLocationListRequest) returns (AdminLocationListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/location_list"
+			get: "/api/admin_user/location_list"
 		};
 	};
 
 	rpc AdminLocationListNew (AdminLocationListRequest) returns (AdminLocationListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/location_list_2"
+			get: "/api/admin_user/location_list_2"
 		};
 	};
 
 	rpc AdminRecordList (RecordListRequest) returns (RecordListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/record_list"
+			get: "/api/admin_user/record_list"
 		};
 	};
 
 	rpc AdminLocationAllList (AdminLocationAllListRequest) returns (AdminLocationAllListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/location_all_list"
+			get: "/api/admin_user/location_all_list"
 		};
 	};
 
 	rpc AdminWithdrawList (AdminWithdrawListRequest) returns (AdminWithdrawListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/withdraw_list"
+			get: "/api/admin_user/withdraw_list"
 		};
 	};
 
 	rpc AdminWithdraw (AdminWithdrawRequest) returns (AdminWithdrawReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/withdraw"
+			get: "/api/admin_user/withdraw"
 		};
 	};
 
 	rpc AdminTrade (AdminTradeRequest) returns (AdminTradeReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/trade"
+			get: "/api/admin_user/trade"
 		};
 	};
 
 	rpc AdminWithdrawPass (AdminWithdrawPassRequest) returns (AdminWithdrawPassReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/withdraw_pass"
+			post: "/api/admin_user/withdraw_pass"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminWithdrawEth (AdminWithdrawEthRequest) returns (AdminWithdrawEthReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/withdraw_eth"
+			get: "/api/admin_user/withdraw_eth"
 		};
 	};
 
 	rpc AdminWithdrawBiw (AdminWithdrawEthRequest) returns (AdminWithdrawEthReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/withdraw_biw"
+			get: "/api/admin_user/withdraw_biw"
 		};
 	};
 
 	rpc AdminFee (AdminFeeRequest) returns (AdminFeeReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/fee"
+			get: "/api/admin_user/fee"
 		};
 	};
 
 	rpc AdminDailyFee (AdminDailyFeeRequest) returns (AdminDailyFeeReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/daily_fee"
+			get: "/api/admin_user/daily_fee"
 		};
 	};
 
 	rpc AdminAll (AdminAllRequest) returns (AdminAllReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/all"
+			get: "/api/admin_user/all"
 		};
 	};
 
 	rpc AdminUserRecommend (AdminUserRecommendRequest) returns (AdminUserRecommendReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/user_recommend"
+			get: "/api/admin_user/user_recommend"
 		};
 	};
 
 	rpc AdminMonthRecommend (AdminMonthRecommendRequest) returns (AdminMonthRecommendReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/month_recommend"
+			get: "/api/admin_user/month_recommend"
 		};
 	};
 
 	rpc AdminConfig (AdminConfigRequest) returns (AdminConfigReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/config"
+			get: "/api/admin_user/config"
 		};
 	};
 
 	rpc AdminConfigUpdate (AdminConfigUpdateRequest) returns (AdminConfigUpdateReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/config_update"
+			post: "/api/admin_user/config_update"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminConfigUpdateListen (AdminConfigUpdateListenRequest) returns (AdminConfigUpdateListenReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/config_update_listen"
+			get: "/api/admin_user/config_update_listen"
 		};
 	};
 
 	rpc AdminUserPasswordUpdate (AdminPasswordUpdateRequest) returns (AdminPasswordUpdateReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/password_update"
+			post: "/api/admin_user/password_update"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminUpdateLocationNewMax (AdminUpdateLocationNewMaxRequest) returns (AdminUpdateLocationNewMaxReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/admin_update_location_new_max"
+			post: "/api/admin_user/admin_update_location_new_max"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminVipUpdate (AdminVipUpdateRequest) returns (AdminVipUpdateReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/vip_update"
+			post: "/api/admin_user/vip_update"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminSetPass (AdminSetPassRequest) returns (AdminSetPassReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/set_pass"
+			post: "/api/admin_user/set_pass"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminAmountFourUpdate (AdminAmountFourRequest) returns (AdminAmountFourReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/amount_four_update"
+			post: "/api/admin_user/amount_four_update"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminUndoUpdate (AdminUndoUpdateRequest) returns (AdminUndoUpdateReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/undo_update"
+			post: "/api/admin_user/undo_update"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminAreaLevelUpdate (AdminAreaLevelUpdateRequest) returns (AdminAreaLevelUpdateReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/level_update"
+			post: "/api/admin_user/level_update"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminLocationInsert (AdminLocationInsertRequest) returns (AdminLocationInsertReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/location_insert"
+			post: "/api/admin_user/location_insert"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminBalanceUpdate (AdminBalanceUpdateRequest) returns (AdminBalanceUpdateReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/balance_update"
+			post: "/api/admin_user/balance_update"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminLogin (AdminLoginRequest) returns (AdminLoginReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/login"
+			post: "/api/admin_user/login"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminCreateAccount (AdminCreateAccountRequest) returns (AdminCreateAccountReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/create_account"
+			post: "/api/admin_user/create_account"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminChangePassword (AdminChangePasswordRequest) returns (AdminChangePasswordReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/change_password"
+			post: "/api/admin_user/change_password"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminList (AdminListRequest) returns (AdminListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/admin_list"
+			get: "/api/admin_user/admin_list"
 		};
 	};
 
 	rpc AuthList (AuthListRequest) returns (AuthListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/auth_list"
+			get: "/api/admin_user/auth_list"
 		};
 	};
 
 	rpc MyAuthList (MyAuthListRequest) returns (MyAuthListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/my_auth_list"
+			get: "/api/admin_user/my_auth_list"
 		};
 	};
 
 	rpc UserAuthList (UserAuthListRequest) returns (UserAuthListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/user_auth_list"
+			get: "/api/admin_user/user_auth_list"
 		};
 	};
 
 	rpc AuthAdminCreate (AuthAdminCreateRequest) returns (AuthAdminCreateReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/auth_create"
+			post: "/api/admin_user/auth_create"
 			body: "send_body"
 		};
 	};
 
 	rpc AuthAdminDelete (AuthAdminDeleteRequest) returns (AuthAdminDeleteReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/auth_delete"
+			post: "/api/admin_user/auth_delete"
 			body: "send_body"
 		};
 	};
 
 	rpc CheckAndInsertRecommendArea (CheckAndInsertRecommendAreaRequest) returns (CheckAndInsertRecommendAreaReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/check_and_insert_recommend_area"
+			get: "/api/admin_user/check_and_insert_recommend_area"
 		};
 	};
 
 	rpc AdminDailyRecommendReward (AdminDailyRecommendRewardRequest) returns (AdminDailyRecommendRewardReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/daily_recommend_reward"
+			get: "/api/admin_user/daily_recommend_reward"
 		};
 	};
 
 	rpc AdminDailyBalanceReward (AdminDailyBalanceRewardRequest) returns (AdminDailyBalanceRewardReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/daily_balance_reward"
+			get: "/api/admin_user/daily_balance_reward"
 		};
 	};
 
 	rpc AdminDailyLocationReward (AdminDailyLocationRewardRequest) returns (AdminDailyLocationRewardReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/new_daily_location_reward"
+			get: "/api/admin_user/new_daily_location_reward"
 		};
 	};
 
 	rpc AdminDailyLocationRewardThree (AdminDailyLocationRewardRequest) returns (AdminDailyLocationRewardReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/new_daily_location_reward_three"
+			get: "/api/admin_user/new_daily_location_reward_three"
 		};
 	};
 
 	rpc AdminDailyAreaReward (AdminDailyLocationRewardRequest) returns (AdminDailyLocationRewardReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/daily_area_reward"
+			get: "/api/admin_user/daily_area_reward"
 		};
 	};
 
 	rpc AdminDailyLocationRewardNew (AdminDailyLocationRewardNewRequest) returns (AdminDailyLocationRewardNewReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/daily_location_reward_new"
+			get: "/api/admin_user/daily_location_reward_new"
 		};
 	};
 
 	rpc AdminAddMoney(AdminDailyAddMoneyRequest) returns (AdminDailyAddMoneyReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/add_money"
+			get: "/api/admin_user/add_money"
 		};
 	};
 
 	rpc TestMoney(TestMoneyRequest) returns (TestMoneyReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/test_money"
+			get: "/api/admin_user/test_money"
 		};
 	};
 
 	rpc LockUser(LockUserRequest) returns (LockUserReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/lock_user"
+			post: "/api/admin_user/lock_user"
 			body: "send_body"
 		};
 	};
 
 	rpc LockUserReward(LockUserRewardRequest) returns (LockUserRewardReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/lock_user_reward"
+			post: "/api/admin_user/lock_user_reward"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminRecommendLevelUpdate (AdminRecommendLevelRequest) returns (AdminRecommendLevelReply) {
 		option (google.api.http) = {
-			post: "/api/admin_dhb/admin_recommend_level"
+			post: "/api/admin_user/admin_recommend_level"
 			body: "send_body"
 		};
 	};
 
 	rpc AdminBuyList (AdminBuyListRequest) returns (AdminBuyListReply) {
 		option (google.api.http) = {
-			get: "/api/admin_dhb/buy_list"
+			get: "/api/admin_user/buy_list"
 		};
 	};
 }

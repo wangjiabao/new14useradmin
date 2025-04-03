@@ -6,7 +6,7 @@ info:
     title: App API
     version: 0.0.1
 paths:
-    /api/admin_dhb/add_money:
+    /api/admin_user/add_money:
         get:
             tags:
                 - App
@@ -37,7 +37,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/admin_list:
+    /api/admin_user/admin_list:
         get:
             tags:
                 - App
@@ -55,7 +55,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/admin_recommend_level:
+    /api/admin_user/admin_recommend_level:
         post:
             tags:
                 - App
@@ -79,7 +79,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/admin_update_location_new_max:
+    /api/admin_user/admin_update_location_new_max:
         post:
             tags:
                 - App
@@ -103,7 +103,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/all:
+    /api/admin_user/all:
         get:
             tags:
                 - App
@@ -121,7 +121,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/amount_four_update:
+    /api/admin_user/amount_four_update:
         post:
             tags:
                 - App
@@ -145,7 +145,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/auth_create:
+    /api/admin_user/auth_create:
         post:
             tags:
                 - App
@@ -169,7 +169,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/auth_delete:
+    /api/admin_user/auth_delete:
         post:
             tags:
                 - App
@@ -193,7 +193,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/auth_list:
+    /api/admin_user/auth_list:
         get:
             tags:
                 - App
@@ -211,7 +211,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/balance_update:
+    /api/admin_user/balance_update:
         post:
             tags:
                 - App
@@ -235,7 +235,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/buy_list:
+    /api/admin_user/buy_list:
         get:
             tags:
                 - App
@@ -262,7 +262,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/change_password:
+    /api/admin_user/change_password:
         post:
             tags:
                 - App
@@ -286,7 +286,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/check_admin_user_area:
+    /api/admin_user/check_admin_user_area:
         get:
             tags:
                 - App
@@ -304,7 +304,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/check_and_insert_locations_recommend_user:
+    /api/admin_user/check_and_insert_locations_recommend_user:
         get:
             tags:
                 - App
@@ -322,7 +322,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/check_and_insert_recommend_area:
+    /api/admin_user/check_and_insert_recommend_area:
         get:
             tags:
                 - App
@@ -340,7 +340,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/config:
+    /api/admin_user/config:
         get:
             tags:
                 - App
@@ -367,7 +367,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/config_update:
+    /api/admin_user/config_update:
         post:
             tags:
                 - App
@@ -391,7 +391,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/config_update_listen:
+    /api/admin_user/config_update_listen:
         get:
             tags:
                 - App
@@ -409,7 +409,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/create_account:
+    /api/admin_user/create_account:
         post:
             tags:
                 - App
@@ -433,7 +433,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/daily_area_reward:
+    /api/admin_user/daily_area_reward:
         get:
             tags:
                 - App
@@ -456,7 +456,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/daily_balance_reward:
+    /api/admin_user/daily_balance_reward:
         get:
             tags:
                 - App
@@ -479,7 +479,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/daily_fee:
+    /api/admin_user/daily_fee:
         get:
             tags:
                 - App
@@ -503,7 +503,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/daily_location_reward_new:
+    /api/admin_user/daily_location_reward_new:
         get:
             tags:
                 - App
@@ -521,7 +521,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/daily_recommend_reward:
+    /api/admin_user/daily_recommend_reward:
         get:
             tags:
                 - App
@@ -544,7 +544,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/deposit:
+    /api/admin_user/deposit:
         get:
             tags:
                 - App
@@ -562,7 +562,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/deposit_2:
+    /api/admin_user/deposit_2:
         get:
             tags:
                 - App
@@ -580,7 +580,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/deposit_3:
+    /api/admin_user/deposit_3:
         get:
             tags:
                 - App
@@ -598,7 +598,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/deposit_4:
+    /api/admin_user/deposit_4:
         get:
             tags:
                 - App
@@ -616,7 +616,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/deposit_5:
+    /api/admin_user/deposit_5:
         get:
             tags:
                 - App
@@ -634,7 +634,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/deposit_biw:
+    /api/admin_user/deposit_biw:
         get:
             tags:
                 - App
@@ -652,7 +652,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/deposit_withdraw:
+    /api/admin_user/deposit_withdraw:
         get:
             tags:
                 - App
@@ -670,7 +670,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/deposit_withdraw_biw:
+    /api/admin_user/deposit_withdraw_biw:
         get:
             tags:
                 - App
@@ -688,7 +688,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/fee:
+    /api/admin_user/fee:
         get:
             tags:
                 - App
@@ -706,7 +706,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/level_update:
+    /api/admin_user/level_update:
         post:
             tags:
                 - App
@@ -730,7 +730,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/location_all_list:
+    /api/admin_user/location_all_list:
         get:
             tags:
                 - App
@@ -757,7 +757,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/location_insert:
+    /api/admin_user/location_insert:
         post:
             tags:
                 - App
@@ -781,7 +781,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/location_list:
+    /api/admin_user/location_list:
         get:
             tags:
                 - App
@@ -812,7 +812,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/location_list_2:
+    /api/admin_user/location_list_2:
         get:
             tags:
                 - App
@@ -843,7 +843,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/lock_system:
+    /api/admin_user/lock_system:
         get:
             tags:
                 - App
@@ -861,7 +861,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/lock_user:
+    /api/admin_user/lock_user:
         post:
             tags:
                 - App
@@ -885,7 +885,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/lock_user_reward:
+    /api/admin_user/lock_user_reward:
         post:
             tags:
                 - App
@@ -909,7 +909,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/login:
+    /api/admin_user/login:
         post:
             tags:
                 - App
@@ -933,7 +933,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/month_recommend:
+    /api/admin_user/month_recommend:
         get:
             tags:
                 - App
@@ -960,7 +960,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/my_auth_list:
+    /api/admin_user/my_auth_list:
         get:
             tags:
                 - App
@@ -978,7 +978,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/new_daily_location_reward:
+    /api/admin_user/new_daily_location_reward:
         get:
             tags:
                 - App
@@ -1001,7 +1001,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/new_daily_location_reward_three:
+    /api/admin_user/new_daily_location_reward_three:
         get:
             tags:
                 - App
@@ -1024,7 +1024,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/password_update:
+    /api/admin_user/password_update:
         post:
             tags:
                 - App
@@ -1048,7 +1048,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/record_list:
+    /api/admin_user/record_list:
         get:
             tags:
                 - App
@@ -1075,7 +1075,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/reward_list:
+    /api/admin_user/reward_list:
         get:
             tags:
                 - App
@@ -1106,7 +1106,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/set_pass:
+    /api/admin_user/set_pass:
         post:
             tags:
                 - App
@@ -1130,7 +1130,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/test_money:
+    /api/admin_user/test_money:
         get:
             tags:
                 - App
@@ -1148,7 +1148,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/trade:
+    /api/admin_user/trade:
         get:
             tags:
                 - App
@@ -1166,7 +1166,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/trade_list:
+    /api/admin_user/trade_list:
         get:
             tags:
                 - App
@@ -1193,7 +1193,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/undo_update:
+    /api/admin_user/undo_update:
         post:
             tags:
                 - App
@@ -1217,7 +1217,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/user_auth_list:
+    /api/admin_user/user_auth_list:
         get:
             tags:
                 - App
@@ -1240,7 +1240,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/user_list:
+    /api/admin_user/user_list:
         get:
             tags:
                 - App
@@ -1271,7 +1271,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/user_recommend:
+    /api/admin_user/user_recommend:
         get:
             tags:
                 - App
@@ -1298,7 +1298,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/vip_check:
+    /api/admin_user/vip_check:
         get:
             tags:
                 - App
@@ -1316,7 +1316,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/vip_update:
+    /api/admin_user/vip_update:
         post:
             tags:
                 - App
@@ -1340,7 +1340,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/withdraw:
+    /api/admin_user/withdraw:
         get:
             tags:
                 - App
@@ -1358,7 +1358,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/withdraw_biw:
+    /api/admin_user/withdraw_biw:
         get:
             tags:
                 - App
@@ -1376,7 +1376,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/withdraw_eth:
+    /api/admin_user/withdraw_eth:
         get:
             tags:
                 - App
@@ -1394,7 +1394,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/withdraw_list:
+    /api/admin_user/withdraw_list:
         get:
             tags:
                 - App
@@ -1425,7 +1425,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /api/admin_dhb/withdraw_pass:
+    /api/admin_user/withdraw_pass:
         post:
             tags:
                 - App
