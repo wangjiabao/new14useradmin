@@ -1734,7 +1734,21 @@ func (a *AppService) Withdraw(ctx context.Context, req *v1.WithdrawRequest) (*v1
 }
 
 func (a *AppService) AdminRewardList(ctx context.Context, req *v1.AdminRewardListRequest) (*v1.AdminRewardListReply, error) {
-	return a.uuc.AdminRewardList(ctx, req)
+	// 在上下文 context 中取出 claims 对象
+	var userId int64
+	if claims, ok := jwt.FromContext(ctx); ok {
+		c := claims.(jwt2.MapClaims)
+		if c["UserId"] == nil {
+			return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
+		}
+		userId = int64(c["UserId"].(float64))
+	}
+
+	if 0 >= userId {
+		return nil, nil
+	}
+
+	return a.uuc.AdminRewardList(ctx, userId, req)
 }
 
 func (a *AppService) AdminTradeList(ctx context.Context, req *v1.AdminTradeListRequest) (*v1.AdminTradeListReply, error) {
@@ -1742,7 +1756,21 @@ func (a *AppService) AdminTradeList(ctx context.Context, req *v1.AdminTradeListR
 }
 
 func (a *AppService) AdminUserList(ctx context.Context, req *v1.AdminUserListRequest) (*v1.AdminUserListReply, error) {
-	return a.uuc.AdminUserList(ctx, req)
+	// 在上下文 context 中取出 claims 对象
+	var userId int64
+	if claims, ok := jwt.FromContext(ctx); ok {
+		c := claims.(jwt2.MapClaims)
+		if c["UserId"] == nil {
+			return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
+		}
+		userId = int64(c["UserId"].(float64))
+	}
+
+	if 0 >= userId {
+		return nil, nil
+	}
+
+	return a.uuc.AdminUserList(ctx, userId, req)
 }
 
 func (a *AppService) AdminLocationList(ctx context.Context, req *v1.AdminLocationListRequest) (*v1.AdminLocationListReply, error) {
@@ -1754,11 +1782,39 @@ func (a *AppService) AdminLocationListNew(ctx context.Context, req *v1.AdminLoca
 }
 
 func (a *AppService) AdminRecordList(ctx context.Context, req *v1.RecordListRequest) (*v1.RecordListReply, error) {
-	return a.uuc.AdminRecordList(ctx, req)
+	// 在上下文 context 中取出 claims 对象
+	var userId int64
+	if claims, ok := jwt.FromContext(ctx); ok {
+		c := claims.(jwt2.MapClaims)
+		if c["UserId"] == nil {
+			return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
+		}
+		userId = int64(c["UserId"].(float64))
+	}
+
+	if 0 >= userId {
+		return nil, nil
+	}
+
+	return a.uuc.AdminRecordList(ctx, userId, req)
 }
 
 func (a *AppService) AdminBuyList(ctx context.Context, req *v1.AdminBuyListRequest) (*v1.AdminBuyListReply, error) {
-	return a.uuc.AdminBuyList(ctx, req)
+	// 在上下文 context 中取出 claims 对象
+	var userId int64
+	if claims, ok := jwt.FromContext(ctx); ok {
+		c := claims.(jwt2.MapClaims)
+		if c["UserId"] == nil {
+			return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
+		}
+		userId = int64(c["UserId"].(float64))
+	}
+
+	if 0 >= userId {
+		return nil, nil
+	}
+
+	return a.uuc.AdminBuyList(ctx, userId, req)
 }
 
 func (a *AppService) AdminLocationAllList(ctx context.Context, req *v1.AdminLocationAllListRequest) (*v1.AdminLocationAllListReply, error) {
@@ -1766,7 +1822,21 @@ func (a *AppService) AdminLocationAllList(ctx context.Context, req *v1.AdminLoca
 }
 
 func (a *AppService) AdminWithdrawList(ctx context.Context, req *v1.AdminWithdrawListRequest) (*v1.AdminWithdrawListReply, error) {
-	return a.uuc.AdminWithdrawList(ctx, req)
+	// 在上下文 context 中取出 claims 对象
+	var userId int64
+	if claims, ok := jwt.FromContext(ctx); ok {
+		c := claims.(jwt2.MapClaims)
+		if c["UserId"] == nil {
+			return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
+		}
+		userId = int64(c["UserId"].(float64))
+	}
+
+	if 0 >= userId {
+		return nil, nil
+	}
+
+	return a.uuc.AdminWithdrawList(ctx, userId, req)
 }
 
 func (a *AppService) AdminWithdraw(ctx context.Context, req *v1.AdminWithdrawRequest) (*v1.AdminWithdrawReply, error) {
@@ -1803,7 +1873,21 @@ func (a *AppService) AdminAll(ctx context.Context, req *v1.AdminAllRequest) (*v1
 }
 
 func (a *AppService) AdminUserRecommend(ctx context.Context, req *v1.AdminUserRecommendRequest) (*v1.AdminUserRecommendReply, error) {
-	return a.uuc.AdminRecommendList(ctx, req)
+	// 在上下文 context 中取出 claims 对象
+	var userId int64
+	if claims, ok := jwt.FromContext(ctx); ok {
+		c := claims.(jwt2.MapClaims)
+		if c["UserId"] == nil {
+			return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
+		}
+		userId = int64(c["UserId"].(float64))
+	}
+
+	if 0 >= userId {
+		return nil, nil
+	}
+
+	return a.uuc.AdminRecommendList(ctx, userId, req)
 }
 
 func (a *AppService) AdminMonthRecommend(ctx context.Context, req *v1.AdminMonthRecommendRequest) (*v1.AdminMonthRecommendReply, error) {

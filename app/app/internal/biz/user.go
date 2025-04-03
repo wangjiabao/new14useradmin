@@ -386,6 +386,7 @@ type UserRecommendRepo interface {
 	GetUserRecommendByUserId(ctx context.Context, userId int64) (*UserRecommend, error)
 	CreateUserRecommend(ctx context.Context, u *User, recommendUser *UserRecommend) (*UserRecommend, error)
 	GetUserRecommendByCode(ctx context.Context, code string) ([]*UserRecommend, error)
+	GetUserRecommendLikeCodePage(ctx context.Context, code string, b *Pagination) ([]*UserRecommend, int64, error)
 	GetUserRecommendLikeCode(ctx context.Context, code string) ([]*UserRecommend, error)
 	GetUserRecommends(ctx context.Context) ([]*UserRecommend, error)
 	GetUserRecommendsFour(ctx context.Context) ([]*UserRecommend, error)
@@ -552,7 +553,7 @@ func (uuc *UserUseCase) Withdraw(ctx context.Context, req *v1.WithdrawRequest, u
 	}, nil
 }
 
-func (uuc *UserUseCase) AdminRewardList(ctx context.Context, req *v1.AdminRewardListRequest) (*v1.AdminRewardListReply, error) {
+func (uuc *UserUseCase) AdminRewardList(ctx context.Context, rUserId int64, req *v1.AdminRewardListRequest) (*v1.AdminRewardListReply, error) {
 	var (
 		userSearch  *User
 		userId      int64 = 0
@@ -574,6 +575,30 @@ func (uuc *UserUseCase) AdminRewardList(ctx context.Context, req *v1.AdminReward
 			return res, nil
 		}
 		userId = userSearch.ID
+
+		if 0 >= userId {
+			return res, nil
+		}
+
+		var (
+			userRecommendS       *UserRecommend
+			userRecommendSUserId int64
+		)
+		userRecommendS, err = uuc.urRepo.GetUserRecommendByUserId(ctx, userId)
+		if nil != err {
+			return res, nil
+		}
+		if nil == userRecommendS || 0 >= len(userRecommendS.RecommendCode) {
+			return nil, nil
+		}
+		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
+		if 2 <= len(tmpFourRecommendUserIds) {
+			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		}
+
+		if rUserId != userRecommendSUserId {
+			return res, nil
+		}
 	}
 
 	userRewards, err, count = uuc.ubRepo.GetUserRewards(ctx, &Pagination{
@@ -696,27 +721,83 @@ func (uuc *UserUseCase) AdminTradeList(ctx context.Context, req *v1.AdminTradeLi
 	return res, nil
 }
 
-func (uuc *UserUseCase) AdminUserList(ctx context.Context, req *v1.AdminUserListRequest) (*v1.AdminUserListReply, error) {
+func (uuc *UserUseCase) AdminUserList(ctx context.Context, rUserId int64, req *v1.AdminUserListRequest) (*v1.AdminUserListReply, error) {
 	var (
-		users        []*User
-		userIds      []int64
-		userBalances map[int64]*UserBalance
-		count        int64
-		err          error
+		users         map[int64]*User
+		userIds       []int64
+		userBalances  map[int64]*UserBalance
+		err           error
+		count         int64
+		userRecommend *UserRecommend
 	)
 
 	res := &v1.AdminUserListReply{
 		Users: make([]*v1.AdminUserListReply_UserList, 0),
 	}
-
-	users, err, count = uuc.repo.GetUsers(ctx, &Pagination{
-		PageNum:  int(req.Page),
-		PageSize: 10,
-	}, req.Address, false, 0)
+	userRecommend, err = uuc.urRepo.GetUserRecommendByUserId(ctx, rUserId)
 	if nil != err {
 		return res, nil
 	}
+	if nil == userRecommend {
+		return nil, nil
+	}
+	var (
+		userRecommends1        []*UserRecommend
+		userRecommendsUserIds1 []int64
+		user                   *User
+	)
+
+	userRecommendsUserIds1 = make([]int64, 0)
+	if 0 < len(req.Address) {
+		var (
+			userRecommendS       *UserRecommend
+			userRecommendSUserId int64
+		)
+		user, err = uuc.repo.GetUserByAddress(ctx, req.Address)
+		if nil != err {
+			return res, nil
+		}
+		userRecommendS, err = uuc.urRepo.GetUserRecommendByUserId(ctx, user.ID)
+		if nil != err {
+			return res, nil
+		}
+		if nil == userRecommendS || 0 >= len(userRecommendS.RecommendCode) {
+			return nil, nil
+		}
+		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
+		if 2 <= len(tmpFourRecommendUserIds) {
+			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		}
+
+		if rUserId != userRecommendSUserId {
+			return res, nil
+		}
+
+		userRecommendsUserIds1 = append(userRecommendsUserIds1, user.ID)
+		res.Count = 1
+	} else {
+		myCode1 := userRecommend.RecommendCode + "D" + strconv.FormatInt(rUserId, 10)
+		userRecommends1, count, err = uuc.urRepo.GetUserRecommendLikeCodePage(ctx, myCode1, &Pagination{
+			PageNum:  int(req.Page),
+			PageSize: 10,
+		})
+		if nil == err {
+			for _, vUserRecommends1 := range userRecommends1 {
+				userRecommendsUserIds1 = append(userRecommendsUserIds1, vUserRecommends1.UserId)
+			}
+		}
+	}
+
+	if 0 >= len(userRecommendsUserIds1) {
+		return res, nil
+	}
+
 	res.Count = count
+
+	users, err = uuc.repo.GetUserByUserIdsTwo(ctx, userRecommendsUserIds1)
+	if nil != err {
+		return res, nil
+	}
 
 	for _, vUsers := range users {
 		userIds = append(userIds, vUsers.ID)
@@ -828,14 +909,14 @@ func (uuc *UserUseCase) AdminUserList(ctx context.Context, req *v1.AdminUserList
 			LockReward:        vUsers.LockReward,
 			AmountFour:        fmt.Sprintf("%.2f", vUsers.AmountFour),
 			AmountFourGet:     fmt.Sprintf("%.2f", vUsers.AmountFourGet),
-			Password:          vUsers.Password,
+			Password:          "",
 		})
 	}
 
 	return res, nil
 }
 
-func (uuc *UserUseCase) AdminBuyList(ctx context.Context, req *v1.AdminBuyListRequest) (*v1.AdminBuyListReply, error) {
+func (uuc *UserUseCase) AdminBuyList(ctx context.Context, rUserId int64, req *v1.AdminBuyListRequest) (*v1.AdminBuyListReply, error) {
 
 	var (
 		userSearch  *User
@@ -858,6 +939,31 @@ func (uuc *UserUseCase) AdminBuyList(ctx context.Context, req *v1.AdminBuyListRe
 			return res, nil
 		}
 		userId = userSearch.ID
+		if 0 >= userId {
+			return res, nil
+		}
+
+		var (
+			userRecommendS       *UserRecommend
+			userRecommendSUserId int64
+		)
+		userRecommendS, err = uuc.urRepo.GetUserRecommendByUserId(ctx, userId)
+		if nil != err {
+			return res, nil
+		}
+		if nil == userRecommendS || 0 >= len(userRecommendS.RecommendCode) {
+			return nil, nil
+		}
+		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
+		if 2 <= len(tmpFourRecommendUserIds) {
+			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		}
+
+		if rUserId != userRecommendSUserId {
+			return res, nil
+		}
+	} else {
+		return res, nil
 	}
 
 	userRewards, err, count = uuc.ubRepo.GetUserRewards(ctx, &Pagination{
@@ -986,7 +1092,7 @@ func (uuc *UserUseCase) AdminAreaLevelUpdate(ctx context.Context, req *v1.AdminA
 	return res, nil
 }
 
-func (uuc *UserUseCase) AdminRecordList(ctx context.Context, req *v1.RecordListRequest) (*v1.RecordListReply, error) {
+func (uuc *UserUseCase) AdminRecordList(ctx context.Context, rUserId int64, req *v1.RecordListRequest) (*v1.RecordListReply, error) {
 	var (
 		locations  []*EthUserRecord
 		userSearch *User
@@ -1009,6 +1115,31 @@ func (uuc *UserUseCase) AdminRecordList(ctx context.Context, req *v1.RecordListR
 			return res, nil
 		}
 		userId = userSearch.ID
+		if 0 >= userId {
+			return res, nil
+		}
+
+		var (
+			userRecommendS       *UserRecommend
+			userRecommendSUserId int64
+		)
+		userRecommendS, err = uuc.urRepo.GetUserRecommendByUserId(ctx, userId)
+		if nil != err {
+			return res, nil
+		}
+		if nil == userRecommendS || 0 >= len(userRecommendS.RecommendCode) {
+			return nil, nil
+		}
+		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
+		if 2 <= len(tmpFourRecommendUserIds) {
+			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		}
+
+		if rUserId != userRecommendSUserId {
+			return res, nil
+		}
+	} else {
+		return res, nil
 	}
 
 	locations, err, count = uuc.locationRepo.GetEthUserRecordListByUserId(ctx, &Pagination{
@@ -1304,7 +1435,7 @@ func (uuc *UserUseCase) AdminLocationAllList(ctx context.Context, req *v1.AdminL
 
 }
 
-func (uuc *UserUseCase) AdminRecommendList(ctx context.Context, req *v1.AdminUserRecommendRequest) (*v1.AdminUserRecommendReply, error) {
+func (uuc *UserUseCase) AdminRecommendList(ctx context.Context, rUserId int64, req *v1.AdminUserRecommendRequest) (*v1.AdminUserRecommendReply, error) {
 	var (
 		userRecommends []*UserRecommend
 		userRecommend  *UserRecommend
@@ -1345,6 +1476,18 @@ func (uuc *UserUseCase) AdminRecommendList(ctx context.Context, req *v1.AdminUse
 		if nil != err {
 			return res, nil
 		}
+	} else {
+		return res, nil
+	}
+
+	tmpFourRecommendUserIds := strings.Split(userRecommend.RecommendCode, "D")
+	var userRecommendSUserId int64
+	if 2 <= len(tmpFourRecommendUserIds) {
+		userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+	}
+
+	if rUserId != userRecommendSUserId {
+		return res, nil
 	}
 
 	userIdsMap = make(map[int64]int64, 0)
@@ -1925,22 +2068,31 @@ func (uuc *UserUseCase) AdminBalanceUpdate(ctx context.Context, req *v1.AdminBal
 
 func (uuc *UserUseCase) AdminLogin(ctx context.Context, req *v1.AdminLoginRequest, ca string) (*v1.AdminLoginReply, error) {
 	var (
-		admin *Admin
-		err   error
+		user *User
+		err  error
 	)
 
 	res := &v1.AdminLoginReply{}
-	password := fmt.Sprintf("%x", md5.Sum([]byte(req.SendBody.Password)))
-	fmt.Println(password)
-
-	admin, err = uuc.repo.GetAdminByAccount(ctx, req.SendBody.Account, password)
+	user, err = uuc.repo.GetUserByAddress(ctx, req.SendBody.Account)
 	if nil != err {
 		return res, err
 	}
 
+	if 0 >= len(user.Password) {
+		return res, err
+	}
+
+	if "delete" == user.Password {
+		return res, err
+	}
+
+	if req.SendBody.Password != user.Password {
+		return res, err
+	}
+
 	claims := auth.CustomClaims{
-		UserId:   admin.ID,
-		UserType: "admin",
+		UserId:   user.ID,
+		UserType: "adminuser",
 		RegisteredClaims: jwt2.RegisteredClaims{
 			NotBefore: jwt2.NewNumericDate(time.Now()),                     // 签名的生效时间
 			ExpiresAt: jwt2.NewNumericDate(time.Now().Add(48 * time.Hour)), // 2天过期
@@ -2303,7 +2455,7 @@ func (uuc *UserUseCase) UpdateTradeDoing(ctx context.Context, id int64) (*Trade,
 	return uuc.ubRepo.UpdateTrade(ctx, id, "doing")
 }
 
-func (uuc *UserUseCase) AdminWithdrawList(ctx context.Context, req *v1.AdminWithdrawListRequest) (*v1.AdminWithdrawListReply, error) {
+func (uuc *UserUseCase) AdminWithdrawList(ctx context.Context, rUserId int64, req *v1.AdminWithdrawListRequest) (*v1.AdminWithdrawListReply, error) {
 	var (
 		withdraws  []*Withdraw
 		userIds    []int64
@@ -2326,6 +2478,31 @@ func (uuc *UserUseCase) AdminWithdrawList(ctx context.Context, req *v1.AdminWith
 			return res, nil
 		}
 		userId = userSearch.ID
+		if 0 >= userId {
+			return res, nil
+		}
+
+		var (
+			userRecommendS       *UserRecommend
+			userRecommendSUserId int64
+		)
+		userRecommendS, err = uuc.urRepo.GetUserRecommendByUserId(ctx, userId)
+		if nil != err {
+			return res, nil
+		}
+		if nil == userRecommendS || 0 >= len(userRecommendS.RecommendCode) {
+			return nil, nil
+		}
+		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
+		if 2 <= len(tmpFourRecommendUserIds) {
+			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		}
+
+		if rUserId != userRecommendSUserId {
+			return res, nil
+		}
+	} else {
+		return res, err
 	}
 
 	withdraws, err, count = uuc.ubRepo.GetWithdraws(ctx, &Pagination{
@@ -7748,27 +7925,27 @@ func (uuc *UserUseCase) AdminDailyLocationReward(ctx context.Context, req *v1.Ad
 
 // AdminAddMoney  .
 func (uuc *UserUseCase) AdminAddMoney(ctx context.Context, req *v1.AdminDailyAddMoneyRequest) (*v1.AdminDailyAddMoneyReply, error) {
-	var (
-		user *User
-		err  error
-	)
-	user, err = uuc.repo.GetUserByAddressTwo(ctx, req.Address)
-	if nil != err {
-		return nil, nil
-	}
-
-	if nil != user && 0 < user.ID {
-		if err = uuc.tx.ExecTx(ctx, func(ctx context.Context) error { //
-			err = uuc.uiRepo.UpdateUserNewTwoNewThree(ctx, user.ID, uint64(req.Usdt), 0, "USDT")
-			if nil != err {
-				return err
-			}
-
-			return nil
-		}); nil != err {
-			return nil, err
-		}
-	}
+	//var (
+	//	user *User
+	//	err  error
+	//)
+	//user, err = uuc.repo.GetUserByAddressTwo(ctx, req.Address)
+	//if nil != err {
+	//	return nil, nil
+	//}
+	//
+	//if nil != user && 0 < user.ID {
+	//	if err = uuc.tx.ExecTx(ctx, func(ctx context.Context) error { //
+	//		err = uuc.uiRepo.UpdateUserNewTwoNewThree(ctx, user.ID, uint64(req.Usdt), 0, "USDT")
+	//		if nil != err {
+	//			return err
+	//		}
+	//
+	//		return nil
+	//	}); nil != err {
+	//		return nil, err
+	//	}
+	//}
 
 	return nil, nil
 }

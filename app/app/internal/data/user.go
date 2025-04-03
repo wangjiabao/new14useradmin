@@ -339,8 +339,9 @@ func (u *UserRepo) GetUserByAddress(ctx context.Context, address string) (*biz.U
 	}
 
 	return &biz.User{
-		ID:      user.ID,
-		Address: user.Address,
+		ID:       user.ID,
+		Address:  user.Address,
+		Password: user.Password,
 	}, nil
 }
 
@@ -650,11 +651,23 @@ func (u *UserRepo) GetUserByUserIdsTwo(ctx context.Context, userIds []int64) (ma
 		res[item.ID] = &biz.User{
 			ID:                     item.ID,
 			Address:                item.Address,
-			AmountUsdtGet:          item.AmountUsdtGet,
+			Password:               item.Password,
+			CreatedAt:              item.CreatedAt,
+			Amount:                 item.Amount,
 			AmountUsdt:             item.AmountUsdt,
-			AmountRecommendUsdtGet: item.AmountRecommendUsdtGet,
+			AmountBiw:              item.AmountBiw,
+			OutRate:                item.OutRate,
+			RecommendLevel:         item.RecommendLevel,
+			Lock:                   item.Lock,
+			AmountUsdtOrigin:       item.AmountUsdtOrigin,
+			AmountUsdtGet:          item.AmountUsdtGet,
 			MyTotalAmount:          item.MyTotalAmount,
 			Vip:                    item.Vip,
+			VipAdmin:               item.VipAdmin,
+			LockReward:             item.LockReward,
+			AmountFourGet:          item.AmountFourGet,
+			AmountFour:             item.AmountFour,
+			AmountRecommendUsdtGet: item.AmountRecommendUsdtGet,
 		}
 	}
 	return res, nil
@@ -1206,6 +1219,35 @@ func (ur *UserRecommendRepo) GetUserRecommendByCode(ctx context.Context, code st
 	}
 
 	return res, nil
+}
+
+// GetUserRecommendLikeCodePage .
+func (ur *UserRecommendRepo) GetUserRecommendLikeCodePage(ctx context.Context, code string, b *biz.Pagination) ([]*biz.UserRecommend, int64, error) {
+	var (
+		count          int64
+		userRecommends []*UserRecommend
+	)
+	res := make([]*biz.UserRecommend, 0)
+	instance := ur.data.db.Where("recommend_code Like ?", code+"%")
+
+	instance = instance.Count(&count)
+
+	if err := instance.Scopes(Paginate(b.PageNum, b.PageSize)).Table("user_recommend").Order("id asc").Find(&userRecommends).Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return res, 0, errors.NotFound("USER_RECOMMEND_NOT_FOUND", "user recommend not found")
+		}
+
+		return nil, 0, errors.New(500, "USER RECOMMEND ERROR", err.Error())
+	}
+
+	for _, userRecommend := range userRecommends {
+		res = append(res, &biz.UserRecommend{
+			UserId:        userRecommend.UserId,
+			RecommendCode: userRecommend.RecommendCode,
+		})
+	}
+
+	return res, count, nil
 }
 
 // GetUserRecommendLikeCode .
