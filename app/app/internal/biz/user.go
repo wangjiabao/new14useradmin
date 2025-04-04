@@ -782,10 +782,13 @@ func (uuc *UserUseCase) AdminUserList(ctx context.Context, rUserId int64, req *v
 			PageSize: 10,
 		})
 		if nil != err {
-			for _, vUserRecommends1 := range userRecommends1 {
-				userRecommendsUserIds1 = append(userRecommendsUserIds1, vUserRecommends1.UserId)
-			}
+			return res, nil
 		}
+		fmt.Println(len(userRecommends1))
+		for _, vUserRecommends1 := range userRecommends1 {
+			userRecommendsUserIds1 = append(userRecommendsUserIds1, vUserRecommends1.UserId)
+		}
+
 	}
 
 	if 0 >= len(userRecommendsUserIds1) {
