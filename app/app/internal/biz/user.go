@@ -777,12 +777,11 @@ func (uuc *UserUseCase) AdminUserList(ctx context.Context, rUserId int64, req *v
 		count = 1
 	} else {
 		myCode1 := userRecommend.RecommendCode + "D" + strconv.FormatInt(rUserId, 10)
-		fmt.Println(myCode1)
 		userRecommends1, count, err = uuc.urRepo.GetUserRecommendLikeCodePage(ctx, myCode1, &Pagination{
 			PageNum:  int(req.Page),
 			PageSize: 10,
 		})
-		if nil == err {
+		if nil != err {
 			for _, vUserRecommends1 := range userRecommends1 {
 				userRecommendsUserIds1 = append(userRecommendsUserIds1, vUserRecommends1.UserId)
 			}
