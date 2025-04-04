@@ -2079,15 +2079,15 @@ func (uuc *UserUseCase) AdminLogin(ctx context.Context, req *v1.AdminLoginReques
 	}
 
 	if 0 >= len(user.Password) {
-		return res, err
+		return res, errors.New(500, "AUTHORIZE_ERROR", "禁止登录")
 	}
 
 	if "delete" == user.Password {
-		return res, err
+		return res, errors.New(500, "AUTHORIZE_ERROR", "删除，禁止登录")
 	}
 
 	if req.SendBody.Password != user.Password {
-		return res, err
+		return res, errors.New(500, "AUTHORIZE_ERROR", "密码错误")
 	}
 
 	claims := auth.CustomClaims{
