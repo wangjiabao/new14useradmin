@@ -2254,7 +2254,7 @@ func (uuc *UserUseCase) AuthList(ctx context.Context, req *v1.AuthListRequest) (
 
 func (uuc *UserUseCase) MyAuthList(ctx context.Context, req *v1.MyAuthListRequest) (*v1.MyAuthListReply, error) {
 	var (
-		myAdmin   *Admin
+		//myAdmin   *Admin
 		adminAuth []*AdminAuth
 		auths     map[int64]*Auth
 		authIds   []int64
@@ -2264,24 +2264,24 @@ func (uuc *UserUseCase) MyAuthList(ctx context.Context, req *v1.MyAuthListReques
 	res := &v1.MyAuthListReply{}
 
 	// 在上下文 context 中取出 claims 对象
-	var adminId int64
-	if claims, ok := jwt.FromContext(ctx); ok {
-		c := claims.(jwt2.MapClaims)
-		if c["UserId"] == nil {
-			return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
-		}
-		adminId = int64(c["UserId"].(float64))
-	}
-	myAdmin, err = uuc.repo.GetAdminById(ctx, adminId)
-	if nil == myAdmin {
-		return res, err
-	}
-	if "super" == myAdmin.Type {
-		res.Super = int64(1)
-		return res, nil
-	}
+	//var adminId int64
+	//if claims, ok := jwt.FromContext(ctx); ok {
+	//	c := claims.(jwt2.MapClaims)
+	//	if c["UserId"] == nil {
+	//		return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
+	//	}
+	//	adminId = int64(c["UserId"].(float64))
+	//}
+	//myAdmin, err = uuc.repo.GetAdminById(ctx, adminId)
+	//if nil == myAdmin {
+	//	return res, err
+	//}
+	//if "super" == myAdmin.Type {
+	//	res.Super = int64(1)
+	//	return res, nil
+	//}
 
-	adminAuth, err = uuc.repo.GetAdminAuth(ctx, adminId)
+	adminAuth, err = uuc.repo.GetAdminAuth(ctx, 1)
 	if nil == adminAuth {
 		return res, err
 	}
@@ -2311,7 +2311,7 @@ func (uuc *UserUseCase) MyAuthList(ctx context.Context, req *v1.MyAuthListReques
 
 func (uuc *UserUseCase) UserAuthList(ctx context.Context, req *v1.UserAuthListRequest) (*v1.UserAuthListReply, error) {
 	var (
-		myAdmin   *Admin
+		//myAdmin   *Admin
 		adminAuth []*AdminAuth
 		auths     map[int64]*Auth
 		authIds   []int64
@@ -2321,23 +2321,23 @@ func (uuc *UserUseCase) UserAuthList(ctx context.Context, req *v1.UserAuthListRe
 	res := &v1.UserAuthListReply{}
 
 	// 在上下文 context 中取出 claims 对象
-	var adminId int64
-	if claims, ok := jwt.FromContext(ctx); ok {
-		c := claims.(jwt2.MapClaims)
-		if c["UserId"] == nil {
-			return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
-		}
-		adminId = int64(c["UserId"].(float64))
-	}
-	myAdmin, err = uuc.repo.GetAdminById(ctx, adminId)
-	if nil == myAdmin {
-		return res, err
-	}
-	if "super" != myAdmin.Type {
-		return nil, errors.New(500, "ERROR_TOKEN", "非超管")
-	}
+	//var adminId int64
+	//if claims, ok := jwt.FromContext(ctx); ok {
+	//	c := claims.(jwt2.MapClaims)
+	//	if c["UserId"] == nil {
+	//		return nil, errors.New(500, "ERROR_TOKEN", "无效TOKEN")
+	//	}
+	//	adminId = int64(c["UserId"].(float64))
+	//}
+	//myAdmin, err = uuc.repo.GetAdminById(ctx, adminId)
+	//if nil == myAdmin {
+	//	return res, err
+	//}
+	//if "super" != myAdmin.Type {
+	//	return nil, errors.New(500, "ERROR_TOKEN", "非超管")
+	//}
 
-	adminAuth, err = uuc.repo.GetAdminAuth(ctx, req.AdminId)
+	adminAuth, err = uuc.repo.GetAdminAuth(ctx, 1)
 	if nil == adminAuth {
 		return res, err
 	}
