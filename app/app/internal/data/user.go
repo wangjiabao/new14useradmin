@@ -1228,11 +1228,11 @@ func (ur *UserRecommendRepo) GetUserRecommendLikeCodePage(ctx context.Context, c
 		userRecommends []*UserRecommend
 	)
 	res := make([]*biz.UserRecommend, 0)
-	instance := ur.data.db.Where("recommend_code Like ?", code+"%")
+	instance := ur.data.db.Table("user_recommend").Where("recommend_code Like ?", code+"%")
 
 	instance = instance.Count(&count)
 
-	if err := instance.Scopes(Paginate(b.PageNum, b.PageSize)).Table("user_recommend").Order("id asc").Find(&userRecommends).Error; err != nil {
+	if err := instance.Scopes(Paginate(b.PageNum, b.PageSize)).Order("id asc").Find(&userRecommends).Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return res, 0, nil
 		}

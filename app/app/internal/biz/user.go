@@ -781,7 +781,6 @@ func (uuc *UserUseCase) AdminUserList(ctx context.Context, rUserId int64, req *v
 			PageNum:  int(req.Page),
 			PageSize: 10,
 		})
-		fmt.Println(myCode1, len(userRecommends1))
 		if nil != err {
 			return res, nil
 		}
