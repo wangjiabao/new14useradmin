@@ -1234,7 +1234,7 @@ func (ur *UserRecommendRepo) GetUserRecommendLikeCodePage(ctx context.Context, c
 
 	if err := instance.Scopes(Paginate(b.PageNum, b.PageSize)).Table("user_recommend").Order("id asc").Find(&userRecommends).Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return res, 0, errors.NotFound("USER_RECOMMEND_NOT_FOUND", "user recommend not found")
+			return res, 0, nil
 		}
 
 		return nil, 0, errors.New(500, "USER RECOMMEND ERROR", err.Error())
