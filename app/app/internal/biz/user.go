@@ -581,8 +581,7 @@ func (uuc *UserUseCase) AdminRewardList(ctx context.Context, rUserId int64, req 
 		}
 
 		var (
-			userRecommendS       *UserRecommend
-			userRecommendSUserId int64
+			userRecommendS *UserRecommend
 		)
 		userRecommendS, err = uuc.urRepo.GetUserRecommendByUserId(ctx, userId)
 		if nil != err {
@@ -592,13 +591,17 @@ func (uuc *UserUseCase) AdminRewardList(ctx context.Context, rUserId int64, req 
 			return nil, nil
 		}
 		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
-		if 2 <= len(tmpFourRecommendUserIds) {
-			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		tmpAuth := false
+		for _, v := range tmpFourRecommendUserIds {
+			tmpUserId, _ := strconv.ParseInt(v, 10, 64) // 最后一位是直推人
+			if rUserId == tmpUserId {
+				tmpAuth = true
+			}
 		}
-
-		if rUserId != userRecommendSUserId {
+		if !tmpAuth {
 			return res, nil
 		}
+
 	}
 
 	userRewards, err, count = uuc.ubRepo.GetUserRewards(ctx, &Pagination{
@@ -750,8 +753,7 @@ func (uuc *UserUseCase) AdminUserList(ctx context.Context, rUserId int64, req *v
 	userRecommendsUserIds1 = make([]int64, 0)
 	if 0 < len(req.Address) {
 		var (
-			userRecommendS       *UserRecommend
-			userRecommendSUserId int64
+			userRecommendS *UserRecommend
 		)
 		user, err = uuc.repo.GetUserByAddress(ctx, req.Address)
 		if nil != err {
@@ -765,11 +767,14 @@ func (uuc *UserUseCase) AdminUserList(ctx context.Context, rUserId int64, req *v
 			return nil, nil
 		}
 		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
-		if 2 <= len(tmpFourRecommendUserIds) {
-			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		tmpAuth := false
+		for _, v := range tmpFourRecommendUserIds {
+			tmpUserId, _ := strconv.ParseInt(v, 10, 64) // 最后一位是直推人
+			if rUserId == tmpUserId {
+				tmpAuth = true
+			}
 		}
-
-		if rUserId != userRecommendSUserId {
+		if !tmpAuth {
 			return res, nil
 		}
 
@@ -946,8 +951,7 @@ func (uuc *UserUseCase) AdminBuyList(ctx context.Context, rUserId int64, req *v1
 		}
 
 		var (
-			userRecommendS       *UserRecommend
-			userRecommendSUserId int64
+			userRecommendS *UserRecommend
 		)
 		userRecommendS, err = uuc.urRepo.GetUserRecommendByUserId(ctx, userId)
 		if nil != err {
@@ -957,11 +961,14 @@ func (uuc *UserUseCase) AdminBuyList(ctx context.Context, rUserId int64, req *v1
 			return nil, nil
 		}
 		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
-		if 2 <= len(tmpFourRecommendUserIds) {
-			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		tmpAuth := false
+		for _, v := range tmpFourRecommendUserIds {
+			tmpUserId, _ := strconv.ParseInt(v, 10, 64) // 最后一位是直推人
+			if rUserId == tmpUserId {
+				tmpAuth = true
+			}
 		}
-
-		if rUserId != userRecommendSUserId {
+		if !tmpAuth {
 			return res, nil
 		}
 	} else {
@@ -1122,8 +1129,7 @@ func (uuc *UserUseCase) AdminRecordList(ctx context.Context, rUserId int64, req 
 		}
 
 		var (
-			userRecommendS       *UserRecommend
-			userRecommendSUserId int64
+			userRecommendS *UserRecommend
 		)
 		userRecommendS, err = uuc.urRepo.GetUserRecommendByUserId(ctx, userId)
 		if nil != err {
@@ -1133,11 +1139,14 @@ func (uuc *UserUseCase) AdminRecordList(ctx context.Context, rUserId int64, req 
 			return nil, nil
 		}
 		tmpFourRecommendUserIds := strings.Split(userRecommendS.RecommendCode, "D")
-		if 2 <= len(tmpFourRecommendUserIds) {
-			userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+		tmpAuth := false
+		for _, v := range tmpFourRecommendUserIds {
+			tmpUserId, _ := strconv.ParseInt(v, 10, 64) // 最后一位是直推人
+			if rUserId == tmpUserId {
+				tmpAuth = true
+			}
 		}
-
-		if rUserId != userRecommendSUserId {
+		if !tmpAuth {
 			return res, nil
 		}
 	} else {
@@ -1483,12 +1492,14 @@ func (uuc *UserUseCase) AdminRecommendList(ctx context.Context, rUserId int64, r
 	}
 
 	tmpFourRecommendUserIds := strings.Split(userRecommend.RecommendCode, "D")
-	var userRecommendSUserId int64
-	if 2 <= len(tmpFourRecommendUserIds) {
-		userRecommendSUserId, _ = strconv.ParseInt(tmpFourRecommendUserIds[len(tmpFourRecommendUserIds)-1], 10, 64) // 最后一位是直推人
+	tmpAuth := false
+	for _, v := range tmpFourRecommendUserIds {
+		tmpUserId, _ := strconv.ParseInt(v, 10, 64) // 最后一位是直推人
+		if rUserId == tmpUserId {
+			tmpAuth = true
+		}
 	}
-
-	if rUserId != userRecommendSUserId {
+	if !tmpAuth {
 		return res, nil
 	}
 
