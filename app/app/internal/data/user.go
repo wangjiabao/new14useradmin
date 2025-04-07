@@ -5375,15 +5375,15 @@ func (ub *UserBalanceRepo) GetUserRewards(ctx context.Context, b *biz.Pagination
 	if "" != reason {
 		instance = instance.Where("reason=?", reason)
 	} else {
-		tmpReason := make([]string, 0)
-		tmpReason = append(tmpReason, "area")
-		tmpReason = append(tmpReason, "total_two")
-		tmpReason = append(tmpReason, "total_one")
-		tmpReason = append(tmpReason, "recommend_b")
-		tmpReason = append(tmpReason, "location")
-		tmpReason = append(tmpReason, "recommend")
-		tmpReason = append(tmpReason, "recommend_two")
-		instance = instance.Where("reason in (?)", tmpReason)
+		//tmpReason := make([]string, 0)
+		//tmpReason = append(tmpReason, "area")
+		//tmpReason = append(tmpReason, "total_two")
+		//tmpReason = append(tmpReason, "total_one")
+		//tmpReason = append(tmpReason, "recommend_b")
+		//tmpReason = append(tmpReason, "location")
+		//tmpReason = append(tmpReason, "recommend")
+		//tmpReason = append(tmpReason, "recommend_two")
+		//instance = instance.Where("reason in (?)", tmpReason)
 	}
 
 	instance = instance.Count(&count)
